@@ -91,7 +91,18 @@ const config = {
           }
         }]
       },
-      {
+       {
+        test: /\.(png|jpg|jpeg|gif)(\?.+)?$/,
+        exclude: /favicon\.png$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'assets/img/[name].[hash:7].[ext]'
+          }
+        }]
+      },
+      /*{
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
         exclude: /favicon\.png$/,
         use: [{
@@ -99,6 +110,16 @@ const config = {
           options: {
             limit: 10000,
             name: 'assets/img/[name].[hash:7].[ext]'
+          }
+        }]
+      },*/
+      {
+        test: /\.(woff2?|woff|eot|ttf|otf|svg|svgz)(\?.*)?$/,
+        use:[{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'assets/fonts/[name].[hash:7].[ext]'
           }
         }]
       }
