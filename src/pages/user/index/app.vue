@@ -25,7 +25,7 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "index.styl";
+
   .bg1
     background: green
     width: 100px

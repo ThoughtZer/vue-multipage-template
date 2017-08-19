@@ -23,13 +23,14 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
   entries[chunk] = path
   chunks.push(chunk)
 })
-
+const debug = process.env.NODE_ENV !== "production"
 const config = {
   entry: entries,
   output: {
     path: resolve(__dirname, './dist'),
     filename: 'assets/js/[name].js',
-    publicPath: '/'
+    publicPath: debug ? '/' : '../'
+    //publicPath: '/'
     //打包的时候换掉publicPath   publicPath: '../'
   },
   resolve: {
@@ -138,7 +139,7 @@ const config = {
   ],
   devServer: {
     host: '127.0.0.1',
-    port: 8010,
+    port: 7290,
     hot: true,
     historyApiFallback: false,
     noInfo: false,
@@ -181,7 +182,8 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: debug
     })
   ])
 }

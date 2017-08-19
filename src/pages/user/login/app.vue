@@ -2,6 +2,7 @@
   <div>
     <div class="bg"></div>
     {{msg}}
+    <img src="./img/logo.png" alt="">
   </div>
 </template>
 
