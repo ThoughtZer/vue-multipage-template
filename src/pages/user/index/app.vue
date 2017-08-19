@@ -25,10 +25,10 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "index.styl";
+  @import "~common/stylus/mixin.styl"
   .bg1
-    background: green
+    background: red
     width: 100px
     height: 20px
-
+    extend-click()
 </style>
