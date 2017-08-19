@@ -24,18 +24,25 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
   chunks.push(chunk)
 })
 
+const debug = process.env.NODE_ENV !== "production"
+
 const config = {
   entry: entries,
   output: {
     path: resolve(__dirname, './dist'),
     filename: 'assets/js/[name].js',
-    publicPath: '/'
+
+    publicPath: debug ? '/' : '../'
+    //publicPath: '/'
     //打包的时候换掉publicPath   publicPath: '../'
   },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
       assets: join(__dirname, '/src/assets'),
+
+      common: join(__dirname, '/src/common'),
+
       components: join(__dirname, '/src/components'),
       root: join(__dirname, 'node_modules')
     }
@@ -52,7 +59,9 @@ const config = {
               fallback: 'style-loader'
             })),
             stylus: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+
               use: ['css-loader', 'postcss-loader', 'stylus-loader'],
+
               fallback: 'style-loader'
             })),
             postcss: ExtractTextPlugin.extract({
@@ -137,7 +146,9 @@ const config = {
   ],
   devServer: {
     host: '127.0.0.1',
-    port: 8010,
+
+    port: 7290,
+
     hot: true,
     historyApiFallback: false,
     noInfo: false,
@@ -180,7 +191,8 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: debug
     })
   ])
 }
