@@ -2,15 +2,23 @@
   <div>
     <div class="bg"></div>
     {{msg}}
-    <img src="./img/logo.png" alt="">
   </div>
 </template>
 
-<script>
+<script type='text/ecmascript-6'>
+  import Vue from 'vue'
   import logo from 'assets/img/logo.png'
 
+  import {AlertPlugin} from 'vux'
+  Vue.use(AlertPlugin)
+
   export default {
-    data(){
+    mounted() {
+      this.$vux.alert.show({
+        content: '这是弹框',
+      })
+    },
+    data() {
       return {
         msg: "测试数据"
       }

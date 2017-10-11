@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
+const vuxLoader = require('vux-loader');
+
 const extractCSS = new ExtractTextPlugin({
   filename: 'assets/css/[name].css',
   allChunks: true
@@ -17,7 +19,9 @@ const extractSTYLUS = new ExtractTextPlugin({
 })
 
 const entries = {}
+
 const chunks = []
+
 glob.sync('./src/pages/**/app.js').forEach(path => {
   const chunk = path.split('./src/pages/')[1].split('/app.js')[0]
   entries[chunk] = path
@@ -26,23 +30,18 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
 
 const debug = process.env.NODE_ENV !== "production"
 
-const config = {
+var config = {
   entry: entries,
   output: {
     path: resolve(__dirname, './dist'),
     filename: 'assets/js/[name].js',
-
     publicPath: debug ? '/' : '../'
-    //publicPath: '/'
-    //打包的时候换掉publicPath   publicPath: '../'
   },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
       assets: join(__dirname, '/src/assets'),
-
       common: join(__dirname, '/src/common'),
-
       components: join(__dirname, '/src/components'),
       root: join(__dirname, 'node_modules')
     }
@@ -146,9 +145,7 @@ const config = {
   ],
   devServer: {
     host: '127.0.0.1',
-
     port: 7290,
-
     hot: true,
     historyApiFallback: false,
     noInfo: false,
@@ -162,6 +159,14 @@ const config = {
   },
   devtool: '#eval-source-map'
 }
+
+config = vuxLoader.merge(config, {
+  plugins: [
+    {
+      name: 'vux-ui'
+    }
+  ]
+})
 
 glob.sync('./src/pages/**/*.html').forEach(path => {
   const chunk = path.split('./src/pages/')[1].split('/app.html')[0]
