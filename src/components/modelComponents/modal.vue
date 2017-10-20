@@ -9,10 +9,11 @@
   }
 </script>
 
-<style lang="css">
-  .modal {
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  .modal
     width: 100px;
     height: 100px;
     border: 1px solid #ccc;
-  }
+    background url("./img/fn.png") no-repeat
+    background-size 100% 100%
 </style>

@@ -105,7 +105,7 @@ var config = {
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: 500000,
             name: 'assets/img/[name].[hash:7].[ext]'
           }
         }]
