@@ -5,7 +5,7 @@ const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
-
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const vuxLoader = require('vux-loader');
 
 const extractCSS = new ExtractTextPlugin({
@@ -29,7 +29,7 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
 })
 
 const debug = process.env.NODE_ENV !== "production"
-
+const devPort = 7290
 var config = {
   entry: entries,
   output: {
@@ -99,7 +99,7 @@ var config = {
           }
         }]
       },
-       {
+      {
         test: /\.(png|jpg|jpeg|gif)(\?.+)?$/,
         exclude: /favicon\.png$/,
         use: [{
@@ -123,7 +123,7 @@ var config = {
       },*/
       {
         test: /\.(woff2?|woff|eot|ttf|otf|svg|svgz)(\?.*)?$/,
-        use:[{
+        use: [{
           loader: 'url-loader',
           options: {
             limit: 10000,
@@ -145,15 +145,16 @@ var config = {
   ],
   devServer: {
     host: '127.0.0.1',
-    port: 7290,
+    port: devPort,
     hot: true,
     historyApiFallback: false,
     noInfo: false,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://localhost:3333',
         changeOrigin: true,
-        pathRewrite: {'^/api': ''}
+        secure: false
+        // pathRewrite: {'^/api': ''}
       }
     }
   },

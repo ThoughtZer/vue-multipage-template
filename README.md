@@ -11,9 +11,12 @@
   如果样式中引入背景图片过大，可以适当的调大 *webpack.config.js* 里面的 __url-loader__ 的 __limit__ 的参数，但是这样做或许会让你的JS文件过大。\
   (综上：不推荐使用大图片做背景图，可以做一些适当的压缩或者使用img标签引用)。
   3. 经过测试，在pages的页面文件夹中，也可以不用vue，使用普通的页面也可以压缩打包。详见CommonPages文件夹，但同样不推荐使用大图片做背景图
-
+  4. mock文件夹下是使用express启动一个前端服务，便于模拟数据接口。使用方法见已有代码，启动方法：npm run server
+  
 #### 使用方法：
 
     npm run dev // 开发环境，localhost:7290
     
     npm run build // 打包生成dist目录
+    
+    npm run server // 启动express,监听localhost:3333
