@@ -5,7 +5,7 @@ const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const vuxLoader = require('vux-loader');
 
 const extractCSS = new ExtractTextPlugin({
@@ -68,6 +68,15 @@ var config = {
               fallback: 'style-loader'
             })
           }
+        }
+      },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
         }
       },
       {
@@ -199,6 +208,7 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false
       },
       sourceMap: debug
-    })
+    }),
+    new OptimizeCSSPlugin()
   ])
 }

@@ -22,7 +22,7 @@
         console.log(rsp)
         if (rsp.data.ret === 0) {
           this.$vux.alert.show({
-            content: '这是弹框',
+            content: '这是弹框'
           })
         }
       })
