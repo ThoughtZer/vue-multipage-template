@@ -10,7 +10,7 @@ apiRoutes.get('/', function (req, res) {
 
 apiRoutes.get('/get', function (req, res) {
   var rsp = {
-    'ret': 0,
+    'status': 0,
     'msg': 'success'
   }
   return res.json(rsp)
@@ -18,12 +18,11 @@ apiRoutes.get('/get', function (req, res) {
 
 apiRoutes.post('/post', function (req, res) {
   var rsp = {
-    'ret': 0,
+    'status': 0,
     'msg': 'success'
   }
   return res.json(rsp)
 })
-
 
 app.use('/api', apiRoutes)
 

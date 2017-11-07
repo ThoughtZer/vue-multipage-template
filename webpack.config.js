@@ -43,7 +43,8 @@ var config = {
       assets: join(__dirname, '/src/assets'),
       common: join(__dirname, '/src/common'),
       components: join(__dirname, '/src/components'),
-      root: join(__dirname, 'node_modules')
+      root: join(__dirname, 'node_modules'),
+      // 'jquery': 'jquery'
     }
   },
   module: {
@@ -149,6 +150,10 @@ var config = {
       chunks: chunks,
       minChunks: chunks.length
     }),
+    // new webpack.ProvidePlugin({
+    //   $: "jquery",
+    //   jQuery: "jquery"
+    // }),
     extractSTYLUS,
     extractCSS
   ],
