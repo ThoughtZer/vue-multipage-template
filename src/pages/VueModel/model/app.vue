@@ -35,5 +35,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "~common/stylus/index.styl"
-
+  div
+    display: flex
 </style>

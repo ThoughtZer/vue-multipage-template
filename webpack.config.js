@@ -144,6 +144,8 @@ var config = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.BannerPlugin('create by 木メメ木+大'),
     new CommonsChunkPlugin({
       name: 'vendors',
       filename: 'assets/js/vendors.js',
