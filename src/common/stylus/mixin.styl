@@ -20,3 +20,8 @@ extend-click()
     left: -10px
     right: -10px
     bottom: -10px
+
+// $baseFontSize是根据设计稿的尺寸 / 10 来决定的
+$baseFontSize = 75
+px2rem($name, $px)
+  {$name} : ($px / $baseFontSize) * 1 rem

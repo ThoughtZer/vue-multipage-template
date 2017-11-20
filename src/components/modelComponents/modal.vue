@@ -10,10 +10,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+  @import "~common/stylus/mixin.styl"
   .modal
-    width: 100px;
-    height: 100px;
-    border: 1px solid #ccc;
+    px2rem(width ,100)
+    px2rem(height ,100)
+    border: 1px solid #ccc
     background url("./img/fn.png") no-repeat
     background-size 100% 100%
 </style>

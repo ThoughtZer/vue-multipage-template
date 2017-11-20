@@ -9,6 +9,7 @@
     "server": "node ./mock/server.js"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "qs": "^6.5.1",
     "vue": "^2.3.3",
     "vue-echarts": "^2.5.1",
