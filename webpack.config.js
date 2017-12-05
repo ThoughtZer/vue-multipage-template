@@ -59,13 +59,13 @@ var config = {
               fallback: 'style-loader'
             })),
             stylus: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-
-              use: ['css-loader', 'postcss-loader', 'stylus-loader'],
-
+              use: ['css-loader',
+                { loader: 'postcss-loader', options: { sourceMap: 'inline' }}, 
+                'stylus-loader'],
               fallback: 'style-loader'
             })),
             postcss: ExtractTextPlugin.extract({
-              use: ['css-loader', 'postcss-loader'],
+              use: ['css-loader', { loader: 'postcss-loader', options: { sourceMap: 'inline' }}],
               fallback: 'style-loader'
             })
           }
@@ -88,14 +88,18 @@ var config = {
       {
         test: /\.css$/,
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          use: ['css-loader', 'postcss-loader'],
+          use: [{ loader: 'css-loader', options: { sourceMap: debug } },
+            { loader: 'postcss-loader', options: { sourceMap: debug } }],
           fallback: 'style-loader'
         }))
       },
       {
         test: /\.styl/,
         use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          use: ['css-loader', 'postcss-loader', 'stylus-loader'],
+          use: [
+            { loader: 'css-loader', options: { sourceMap: debug } },
+            { loader: 'postcss-loader', options: { sourceMap: debug } },
+            { loader: 'stylus-loader', options: { sourceMap: debug } }],
           fallback: 'style-loader'
         }))
       },
@@ -167,10 +171,9 @@ var config = {
     noInfo: false,
     proxy: {
       '/api': {
-        target: 'http://localhost:3333',
+        target: 'http://127.0.0.1:3333',
         changeOrigin: true,
-        secure: false
-        // pathRewrite: {'^/api': ''}
+        // secure: false
       }
     }
   },
