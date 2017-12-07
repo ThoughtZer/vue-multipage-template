@@ -119,7 +119,7 @@ var config = {
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 500000,
+            limit: 10000,
             name: 'assets/img/[name].[hash:7].[ext]'
           }
         }]
@@ -171,7 +171,7 @@ var config = {
     noInfo: false,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:3333',
+        target: 'http://lightpower.yuemia.com',
         changeOrigin: true,
         // secure: false
       }

@@ -12,6 +12,7 @@
     "amfe-flexible": "^2.2.1",
     "qs": "^6.5.1",
     "vue": "^2.4.2",
+    "nprogress": "^0.2.0",
     "vue-echarts": "^2.5.1",
     "vux": "^2.5.3",
     "axios": "^0.17.1"
