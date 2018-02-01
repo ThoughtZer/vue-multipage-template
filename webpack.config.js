@@ -171,7 +171,7 @@ var config = {
     noInfo: false,
     proxy: {
       '/api': {
-        target: 'http://lightpower.yuemia.com',
+        target: 'http://localhost:3333',
         changeOrigin: true,
         // secure: false
       }

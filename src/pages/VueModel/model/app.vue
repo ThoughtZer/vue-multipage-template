@@ -8,8 +8,7 @@
   import ModelComponent from 'components/modelComponents/modal.vue'
   import Vue from 'vue'
   import { AlertPlugin } from 'vux' // 引用vux使用单引号
-  import axios from 'axios'
-  import qs from 'qs'
+  import {submit} from 'common/service/server'
 
   Vue.use(AlertPlugin)
   export default {
@@ -18,7 +17,7 @@
         option1: 'data1',
         option2: 'data2'
       }
-      axios.post('/api/post', qs.stringify(arg)).then((rsp) => {
+      submit(arg).then((rsp) => {
         console.log(rsp)
         if (rsp.data.status === 0) {
           this.$vux.alert.show({
