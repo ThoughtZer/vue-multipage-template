@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
+    "axios": "^0.17.1",
+    "better-scroll": "^1.8.0",
+    "nprogress": "^0.2.0",
+    "postcss-px2rem-eliminate": "^1.0.0",
     "qs": "^6.5.1",
     "vue": "^2.5.13",
-    "nprogress": "^0.2.0",
     "vue-echarts": "^3.0.1",
-    "vux": "^2.7.5",
-    "axios": "^0.17.1",
-    "better-scroll": "^1.8.0"
+    "vux": "^2.7.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
