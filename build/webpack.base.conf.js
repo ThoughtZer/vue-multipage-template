@@ -45,7 +45,7 @@ var config = {
     path: resolve(__dirname, '../dist'),
     filename: 'assets/js/[name].js',
     publicPath: '/' // 尽可能打包之后启动服务，不要双击打开.html
-    // publicPath: debug ? '/' : '../'
+    // publicPath: debug ? '/' : '../' // 前后端不分离的情况下使用，避免静态资源访问不到。但是图片和字体文件路径问题仍没有解决
   },
   resolve: {
     extensions: ['.js', '.vue'],
