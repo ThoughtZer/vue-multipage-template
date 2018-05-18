@@ -34,6 +34,5 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/index.styl"
-  div
-    display: flex
+  
 </style>
