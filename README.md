@@ -33,4 +33,5 @@
         }
         
   - 在pages里面的*.vue组件的style样式区域，禁止使用scope属性!
+  - build完成之后建议在dist文件夹使用 http-server 类似的服务，查看打包之后页面打开效果。直接双击打开无效
 

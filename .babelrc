@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "transform-vue-jsx"
   ],
   "presets": [
     [
@@ -8,6 +9,7 @@
       {
         "modules": false
       }
-    ]
+    ],
+    "stage-0"
   ]
 }
