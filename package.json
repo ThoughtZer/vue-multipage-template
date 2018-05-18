@@ -1,6 +1,6 @@
 {
   "name": "name",
-  "description": "description",
+  "description": "基于VueJs的一个多页面模版(自用)",
   "author": "木メメ木+大",
   "private": true,
   "scripts": {
