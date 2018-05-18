@@ -8,7 +8,7 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
 const vuxLoader = require('vux-loader')
 
-const debug = process.env.NODE_ENV !== '"production"' // 开发环境的判断
+const debug = process.env.NODE_ENV !== 'production' // 开发环境的判断
 
 const extractCSS = new ExtractTextPlugin({
   filename: 'assets/css/[name].css',
@@ -75,7 +75,7 @@ var config = {
                   {
                     loader: 'postcss-loader',
                     options: {
-                      sourceMap: debug
+                      sourceMap: 'inline'
                     }
                   },
                   'stylus-loader'],
@@ -88,7 +88,7 @@ var config = {
                   {
                     loader: 'postcss-loader',
                     options: {
-                      sourceMap: debug
+                      sourceMap: 'inline'
                     }
                   }
                 ],
