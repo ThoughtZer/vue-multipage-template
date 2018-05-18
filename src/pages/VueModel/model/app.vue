@@ -32,7 +32,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/index.styl"
   div
     display: flex

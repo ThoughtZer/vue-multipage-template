@@ -1,20 +1,30 @@
-<template lang="html">
-  <div class="modal">
-    This is a modal
-  </div>
-</template>
-
 <script>
   export default {
+    props: {
+      data: {
+        type: String
+      }
+    },
+    render() {
+      return (
+        <div class="modal">
+          <p>{this.data}</p>
+        </div>
+      )
+    }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "~common/stylus/mixin.styl"
   .modal
-    width 100px
-    height 100px
+    position fixed
+    top 0
+    left 0
+    bottom 0
+    width 100%
+    height 100%
     border: 1px solid #ccc
-    background url("./img/fn.png") no-repeat
-    background-size 100% 100%
+    background url("./img/timg.jpg") no-repeat 50% 50%
+    background-size cover
 </style>
