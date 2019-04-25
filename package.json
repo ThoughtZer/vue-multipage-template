@@ -11,14 +11,14 @@
   "dependencies": {
     "amfe-flexible": "^2.2.1",
     "axios": "^0.18.0",
-    "better-scroll": "^1.11.1",
-    "mockjs": "^1.0.1-beta3",
+    "better-scroll": "^1.15.2",
+    "mockjs": "^1.0.1-beta2",
     "nprogress": "^0.2.0",
     "postcss-px2rem-eliminate": "^1.0.0",
     "qs": "^6.5.2",
     "vue": "^2.5.13",
-    "vue-echarts": "^3.0.7",
-    "vux": "^2.9.0"
+    "vue-echarts": "^4.0.1",
+    "vux": "^2.9.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -63,7 +63,7 @@
     "vue-template-compiler": "^2.5.13",
     "vux-loader": "^1.1.31",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
+    "webpack-dev-server": "2.11.3",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
