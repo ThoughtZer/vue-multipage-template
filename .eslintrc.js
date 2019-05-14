@@ -1,27 +1,34 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
-  env: {
-    browser: true,
-  },
-  extends: 'standard',
-  // required to lint *.vue files
-  plugins: [
-    'html'
-  ],
-  'rules': {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 0,
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'eol-last': 0,
-    'space-before-function-paren': 0
-  }
-}
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/essential"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+    "rules": {
+      // "comma-dangle": ["warn", "always-multiline"],
+      "indent": ["warn", 2],
+      "linebreak-style": ["warn", "unix"],
+      "quotes": ["warn", "single"],
+      "semi": ["warn", "always"],
+      "no-unused-vars": ["warn"],
+      "no-console": 0,
+      'arrow-parens': 0,
+      'generator-star-spacing': 0,
+      'eol-last': 0,
+      'space-before-function-paren': 0
+    }
+};

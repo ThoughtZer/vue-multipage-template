@@ -1,38 +1,34 @@
 <template>
-  <div>
+  <div class="wrapper">
     <model-component></model-component>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
-  import ModelComponent from 'components/modelComponents/modal.vue'
-  import Vue from 'vue'
-  import { AlertPlugin } from 'vux' // 引用vux使用单引号
-  import {submit} from 'common/service/server'
+import ModelComponent from 'components/modelComponents/modal.vue';
+import { submit } from 'common/service/server';
 
-  Vue.use(AlertPlugin)
-  export default {
-    mounted () {
-      let arg = {
-        option1: 'data1',
-        option2: 'data2'
+export default {
+  mounted () {
+    let arg = {
+      option1: 'data1',
+      option2: 'data2'
+    };
+    submit(arg).then((rsp) => {
+      if (rsp.data.status === 0) {
+        console.log(rsp); // eslint-disable-line
       }
-      submit(arg).then((rsp) => {
-        console.log(rsp)
-        if (rsp.data.status === 0) {
-          this.$vux.alert.show({
-            content: '这是弹框'
-          })
-        }
-      })
-    },
-    components: {
-      ModelComponent
-    }
+    });
+  },
+  methods: {
+    
+  },
+  components: {
+    ModelComponent
   }
+};
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/index.styl"
-  
+<style lang="scss">
+  @import 'common/style/reset.scss';
 </style>
