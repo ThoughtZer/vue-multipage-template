@@ -1,23 +1,21 @@
 <template>
-  <div>
+  <div class="warpper">
     <model-component></model-component>
   </div>
 </template>
-<script type='text/ecmascript-6'>
-import ModelComponent from 'components/modelComponents/modal.vue';
+<script>
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import ModelComponent from 'components/modelComponents/modal';
 
-export default {
-  data() {
-    return {
-      msg: 'demo'
-    };
-  },
-  methods: {
-  },
+export default @Component({
   components: {
     ModelComponent,
-  }
-};
+  },
+})
+class PageTwo extends Vue {
+
+}
 </script>
 
 <style lang="scss">

@@ -52,19 +52,40 @@ var config = {
         use: [
           {
             loader: 'babel-loader',
-          }
+          },
         ]
       },
       {
         test: /\.(png|jpg|jpeg|gif)(\?.+)?$/,
         exclude: /favicon\.png$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: 'assets/img/[name].[hash:8].[ext]'
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/img/[name].[hash:8].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 55,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+              optipng: {
+                enabled: false,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+            },
           }
-        }]
+        ]
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|svg|svgz)(\?.*)?$/,
@@ -72,8 +93,8 @@ var config = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            name: 'assets/fonts/[name].[hash:8].[ext]'
-          }
+            name: 'assets/fonts/[name].[hash:8].[ext]',
+          },
         }]
       }
     ]
