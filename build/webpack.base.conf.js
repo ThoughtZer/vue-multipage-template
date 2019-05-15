@@ -23,7 +23,7 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
   }
   HtmlWebpackPluginArray.push(new HtmlWebpackPlugin(htmlConf));
 })
-var config = {
+const config = {
   entry: entries,
   output: {
     path: resolve(__dirname, '../dist'),
@@ -43,13 +43,42 @@ var config = {
       {
         test: /\.vue$/,
         use: [
-          'vue-loader',
+          {
+            loader: 'cache-loader',
+          },
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: require('os').cpus().length - 1,
+              workerParallelJobs: 50,
+              poolTimeout: 2000,
+              poolParallelJobs: 50,
+            },
+          },
+          {
+            loader: 'vue-loader',
+            options: {
+              cacheBusting: true,
+            }
+          }
         ]
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
+          {
+            loader: 'cache-loader',
+          },
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: require('os').cpus().length - 1,
+              workerParallelJobs: 50,
+              poolTimeout: 2000,
+              poolParallelJobs: 50,
+            },
+          },
           {
             loader: 'babel-loader',
           },
