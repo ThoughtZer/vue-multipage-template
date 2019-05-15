@@ -38,11 +38,11 @@
 
 #### 注意事项：
 
-  - 字体和初始化CSS/Stylus文件在common中存放。在组件中，使用@import导入
+  - 字体和初始化CSS/style文件在common中存放。在组件中，使用@import导入
   (字体文件必须是在同一个文件夹font/css文件格式)
   -  components文件夹是放公共组件，结构就是普通的*.vue文件
   - 图片使用了 image-webpack-loader 进行压缩，质量可调
-  -  mock文件夹下是使用express启动一个前端服务，便于模拟数据接口。使用方法见已有代码，启动方法：npm run server
+  -  mock文件夹下是使用express启动一个前端服务，便于模拟数据接口。使用方法见已有代码，启动方法：yarn server
   -  common/service/server.js 可以存放项目的所有接口请求，然后在*.vue中使用。
   - 在pages里面的*.vue组件的style样式区域，禁止使用scope属性!
   - build完成之后建议在dist文件夹使用 http-server 类似的服务，查看打包之后页面打开效果。直接双击打开无效
