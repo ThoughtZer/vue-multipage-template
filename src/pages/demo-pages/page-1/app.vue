@@ -15,7 +15,7 @@ class PageOne extends Vue {
   render() {
     return (
       <div class="wrapper">
-        <model-component data={ this.parentProps }></model-component>
+        <model-component data={ this.parentProps } />
       </div>
     );
   }

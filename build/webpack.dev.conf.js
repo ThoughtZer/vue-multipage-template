@@ -24,7 +24,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         target: 'http://localhost:3333',
         changeOrigin: true
       }
-    }
+    },
   },
   module: {
     rules: [

@@ -135,6 +135,17 @@ const config = {
     new webpack.NamedChunksPlugin(),
     ...HtmlWebpackPluginArray,
   ],
+  stats: {
+    assetsSort: "field",
+    cached: true,
+    cachedAssets: false,
+    children: false,
+    chunks: false,
+    chunkGroups: false,
+    chunkModules: false,
+    chunkOrigins: false,
+    modules: false,
+  },
 }
 
 module.exports = config;
