@@ -60,6 +60,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
+              implementation: require('sass'),
+              sassOptions: {
+                fiber: require('fibers'),
+              },
             }
           },
           {
